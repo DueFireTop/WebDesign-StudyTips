@@ -1,0 +1,215 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bump-chart&code=MYewdgzgLgBBCmAnAlvCARAhlTMC8MA2gLABQMMA9JTMmACbwAeAXDIEXag7EYCMANDACZ-AZn4AWfgFZ-ANn4B2MhQDeYTAFt4bAOSBsxUCDKtv71smNoT4xLQwfxv2AugF9eSmKo1aY2wIg2h46bmlpZytmE2AJzOruTuapo6gHSqgHAqRjAmOEEK_MF24iLRbh4J3oCLnoAoHmkZZkS5Vnn1YWKFpA5koJCwUCA4ADZYOPgwYPAA7jAAgoiImACeABQIKGgDmIQADA4AdNVbvfBgAOZQABYAlFsAZsi9vfPrZwDc7eDQMN19qwDqyKcAcp4IENCA5HlQaIAKV0AcXKADW1ABUKgDI9QCQ5oBYFUAD56AELdANwGgAdTQB2xmQyEtUBhTFcQIgAKKYYAneaXACuYGAUGQ4EWSBJZ3cbmJaB2ZMuFOptPpTJZbLA8wAbphegz4Pw6IwmNzlG4KNR3j05asNg5ABYRgC5PLjcQAw_4BTuUAJtaAbx9ABXGGu1n1MhGVzAcMAA1ARZfL4M9YpqaB9daYfv9AVsAA4MiB05TDTxsAAGXAAJMo3UwvVYnMn-L6FWwQ_0XVmPU4njA3JWyLXSGQhYgYPMs3h1mCszAADxO0M4PYHY4nTsMZiez1ndWxEvfX4nAGaCDR2Px-JeVOcDNdz25_MwQsbjOzstjpjOZP1pyE0hawCf2iecOGF4DANvxgBkIwBJxoB4vRvj8wz6LvyEAUlA8zzJg_AAEbcngAB8MBQVsh4wAAtDAmDIXKCpPDeZCys26iYEwAAqOqloMBAALLYCcWxEUw8xbMx_64Q2pAgFGrLgEM04UEwExMMgEBsHxFAwAxbAMWRzo4DWMQULMgnCaJjpQLMUZeNowDYPAhwUrMRiOlq1TmNoExpNoABClkAMKWeglmUpZABi2gOAp4mmUQjpBu4h46Ka2guN4XACJZXDCBFnBiNFkjRTI0XyNovn-dhWlBS4qXKAFoWcOFWWBuJOXpYFnBRYV4nFbl2hcLFlVVWlfplfFDVVSVzV5YlbXVaVeXJdeRUeY6dDSkgCDFogCqeRQkkwJI4IwOAvSzO8JzwDAvSYIghxoLAC1QdtQKjDcvSIRt9DCVGW2zPA9DyW43QgL0rJRqJDX7LtDCqUV3mEHo_jeH4lkpJZFTuTN1axA1fIiT5RVat-gDvyjmKKAOraxk0GJfkUIg8ByqymgAMqgZN02Y-J646MjqNo0ZCM0BQ6maToh2IPTVVahQ0A0gA1johmQ1zi3ef-QuM4tW1QfAvQ_ZzEvC3GICjGwlxygg_DUIA9GaAGQqgB8ZkagDiNliFM4zAUYgBAvySjoKCHCcUAc-JwvC4eExgMgRHcWAZPwKbi09S7wYgM9r0sNji1m0rKswGrvQIP7WqBxLf3-youX_oBgL6ls678CAUEAFaiVmOjrNwwXJ41HVFn2FEAfOQEQBY2x50tRcl2eZcFVX7UZ-Rc4RkuhACK3nj5x37il946wVb3vWdZnjfZ8IY-aBPxdT13M_1fP6d9UvQ9oIQzS5-P7eb5m2_aOsrV701teHy-w-SGvioX53Kpl9198114T9N0IDIN-G9P7MDLgNQa8txLDQZuJKWMs5bOwlhQMAFIiKyx5HAxqcATjK19uLHB5tLbW3ADofYlxHaEJwaAXoFIdAAGJ1jMKdmbKqcpkCHB9t4ChVC07iSbF7KASA2DzCjNtDQEAzjwSwdAohMA8ZQAZIgMA3hlCYAAD7aF3OImY6hly7ALoXLYO5vBOG0DmbQygoJaJzLoyRZ9NCWPMfwig98mbMCgETdS-wkFsMaigWkfjI7yIwsE4WoSYC0Pod4Bh3B4AyHkMAYArCQmRMuhAa6cw7qszocAXmqSImhI4VwnQwADjCPZtQyJ5tMD0EukcNgkhXGNXcY1KC4SUGhPEfUughxzDrH4IMmAwzX7VMiUKMAXjkAAC8vDcDkC0mhz0YnaCYSwpZ4koHINCds_xbjxniRAJcS4CAoDmFQmIYZqFhCbH4XskJVceoR1xvjF6nt4Ak0QOc94U1FSpSpt4EsqSmYaS0mzEFcAcD5IFpCtmPx6CnB0NwAApJC0WA9TCQwoAgzBLzxLRwIeCXWBtjapQoBbK23tbacIdpCigbsPZextr88mRUDmpSeu8t6-LuZ4JjnHBO7KYA9R6hTAwgBABj8BKlIEqKiOnxYCgGkLmbgu2pCnmMLvBMDhdtBFSLvACHWFGHV2L0iBDgJyFYLpNgCjkkVZ5AKkxA38JysFrN1Vms1fzbVurED6pODoI1Jr0UWthnqbg2xqiOkdcKpVoMzWqo9VU1K3qdCmtSvC5AiLA2GuNRm4V3lw0ulHnazAMbIaKuddocGib3XeAhV66FPrtAFpwVmnNQb82hsyJa5YpIcCEFXmWs1qb-VWT5ocRAIAmT0AIalLUbMADimA3reFQtwZhaKzWHXyVOmdDBbIrMQMEqq0ST2xPoOU-A6x4AAA4UrCoeQ1WBThHhAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    const seriesData = [
+  // index: 客户1, 2, 3, 4, 5, 6, 7
+  {name: '军品', data: [1, 1, 2, 2, 2, 2, 2]},
+  {name: '民品', data: [1, 1, 6, 2, 2, 2, 9]},
+  {name: '售后', data: [1, 7, 1, 1, 2, 4, 3]},
+  {name: '科研', data: [1, 1, 1, 2, 1, 2, 4]},
+]
+const totalData = new Array(seriesData[0].data.length).fill(0);
+const totalDataWithNames = []; // 用于存储带有名称的总数据
+
+seriesData.forEach(function(series) {
+  series.data.forEach(function(value, index) {
+    // totalData[0]表示客户1，以此类推
+    totalData[index] += value;
+    // totalDataWithNames.push({ name: `客户${index + 1}`, value: totalData[index] }); 
+  })
+})
+
+for (index=0; index < totalData.length; index++){
+  totalDataWithNames.push({name: `客户${index + 1}`, value: `${totalData[index]}`})
+}
+
+// 对totalDataWithNames进行排序
+
+totalDataWithNames.sort((a, b) => b.value - a.value);
+
+
+var maxTotalData = Math.max(...totalData);
+
+option = {
+  xAxis: {
+    max: maxTotalData
+  },
+  yAxis: {
+    type: 'category',
+    // data: ['A', 'B', 'C', 'D', 'E', 'F'],
+    data: [
+      // {value: '客户1'}, '客户2', '客户3', '客户4', '客户5', '客户6', '客户7'
+      {value: '客户1'},
+      {value: '客户2'},
+      {value: '客户3'},
+      {value: '客户4'},
+      {value: '客户5'},
+      {value: '客户6'},
+      {value: '客户7'}
+    ],
+    inverse: true,
+    max: 5 // only the largest 5 bars will be displayed
+  },
+  tooltip: {},
+  legend: {
+    data: ['军品', '民品', '售后', '科研'],
+    
+  },
+  series: [
+    // 序号 + 名字
+    // {
+    //   realtimeSort: true,
+    //   name: '序号 + 名字',
+    //   type: 'bar',
+    //   stack: 'y',
+    //   // data: totalData,
+    //   // label: {
+    //   //   show: false, //是否显示汇总
+    //   //   position: 'right',
+    //   //   valueAnimation: true
+    //   // },
+    //   // tooltip:{
+    //   //   show: false
+    //   // },
+    //   data: [
+    //     {value: totalDataWithNames[0].name, obj: {index: '01'}},
+    //     {value: totalDataWithNames[1].name, obj: {index: '02'}},
+    //     {value: totalDataWithNames[2].name, obj: {index: '03'}},
+    //     {value: totalDataWithNames[3].name, obj: {index: '04'}},
+    //     {value: totalDataWithNames[4].name, obj: {index: '05'}},
+    //     {value: totalDataWithNames[5].name, obj: {index: '06'}},
+    //     {value: totalDataWithNames[6].name, obj: {index: '07'}}
+    //   ],
+    //   label: {
+    //     normal: {
+    //       show: true,
+    //       position: 'left',
+    //       color: '#000',
+    //       align: 'left',
+    //       formatter: (params)=> {
+    //         return '{a|'+ params.data.obj.index + '}' + '{b|' + params.name + '}'
+    //       },
+    //       textStyle: {
+    //         rich: {
+    //           a: {
+    //             color: '#1e67cc',
+    //             displayed: 'block',
+    //             align: 'center',
+    //             padding: 5
+    //           },
+    //           b: {
+    //             padding: [0, 0, 0, 5],
+    //             fontSize: 16,
+    //             color: '#000'
+    //           }
+    //         }
+    //       },
+    //       offset: [-40, -30]
+    //     }
+    //   },
+    // },
+    {
+      realtimeSort: true,
+      name: 'total',
+      type: 'bar',
+      stack: 'y',
+      barWidth: '1%',
+      data: totalData,
+      label: {
+        show: true, //是否显示汇总
+        position: 'right',
+        valueAnimation: true,
+      },
+      tooltip:{
+        show: false
+      },
+    },
+    
+    // 军品、民品、售后、科研
+    {
+      name: '军品',
+      type: 'bar',
+      stack: 'x',
+      barWidth: '20px',
+      data: seriesData[0].data
+    },
+    {
+      name: '民品',
+      type: 'bar',
+      stack: 'x',
+      barWidth: '20px',
+      data: seriesData[1].data
+    },
+    {
+      name: '售后',
+      type: 'bar',
+      stack: 'x',
+      barWidth: '20px',
+      data: seriesData[2].data
+    },
+    {
+      name: '科研',
+      type: 'bar',
+      stack: 'x',
+      barWidth: '20px',
+      data: seriesData[3].data,
+      
+      showBackground: true,
+      // barGap: '-100%',
+      backgroundColor: {
+        color: '#dcee0e8'
+      }
+    },
+  ],
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
