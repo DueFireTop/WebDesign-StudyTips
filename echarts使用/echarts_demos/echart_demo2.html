@@ -1,0 +1,149 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=line-smooth&code=PYBwLglsB2AEC8sDeBYAULWZjADaRAC5l1NMwAnCAc2oFMLiByCMOgWydNgF8Aabrjr1oAE0IBtbplQYy8zMCp1oYZgAslEAF4wwAQ1xMBchWQgBjGMwsQKFocelnYhmtGZCAZmCemXAEbAYNjszAAMfi7mbOwA6hCiYOrEABwm0ZisHAASdDTqarDpzmYAnswATJEZmQAeNipsFFGZovoGxBJMgNz5gD_-gL6OgBVKgDD_gMfKgOCqgIAMgODGgEyugErpgNS-xrBMgB8BgO-pq0yA0YaAKDYA9LuASYlMALq10V5K7B3NxAAU0PrsdACU8AB8JP7RFHQwABXChwAAGSACAB8ACRIF5vHg8WBggDcpQU_Ax8jYdTAAGUwGUhMRZJkyFZcEpmABiACcDMZrXJN1U-J0dGIAEZKldMm5qB41t5fHzoodDrBAOGmgHVtQDq6oAZgMA9maAJyCRoAAOUAWdqAQMjAAVKgCg5EaAMhVAJhKgE_tQAK-YBYOUAWPKAfFdABKm2IUAX0FgA1tQKMAgWIAMJ4amwABElH00AAziB9ADVMG-LBnfIqBYUr9yfIAqSky4AO6JZLEarhMWZLF_Fzl8lVsg1mQ5rRNDRaXSqQzMlyWaxrWz2Ryl-QCoVMEUdsxBELAMJrGo57LxAtpkoV-TzvIFIrL8kVNYAFlnK7IDR7TQYY4U7U6sG6gGaVQC_qoA0I0As8qAWE17zt9oBh-R2gEKbQD4hoAk5GHIBgD2QYAvpoXAOZA3BQdwhAwTwIh83zphmALAqCKJIPosLwq8dBIii6KHpgdbRDmuIEkSJKoeSlJBkw9KMgy55mKyBIctyvI5pgQ6eHQPisQoErSvKypqlqeqGqalq2o6PGwK6Hpej6_qBowIZhpG0axmA8aJiRZApmmZIZrx2aGWY-ZJGmxZQWYZHRI5mJ8jwziXNwEYMBAdARl0zimfISHMAAghYFi-RGsAAGLepwpZEiAnJrCAPnnhQ-iiBAQJ-deTD7gApDsADs4RFR5Fb6AAbsAiQADL6AEdC4AA8lVDC4PoRCwF4hheaW86EsSyWBS6SiiAwABKmXZblXIls6QQUBNFABlSGmMV4W1CUtK0JDZRYYs5nVNbgFnRBGmi5sQvW4P1zogMAEasFAw4RaoZ5HaWHAgOo-jPblo3yCdzXnZkl3ANdWAUECdD2T1ejstoyX5QeLJ6HE-TUIUzBBLgohcIebkVsdjXNXVEDQCNzoQ1Dt1eV9GKXvo_mHkgsBVYYsPcuEu7pLAwVrPez5vneTC8FB7Oc7g3OwMVADMACsCaC70gyjJMsyLCsEvOlLXPJYrqQlgL-HMFs4vOTIHMG8QfO7irZtrAcxxnLrbM2zLyXy-EJuq1-luS57ss-37TtMP-QGgRBvAYuczjE5g8doDwqJAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  tooltip: {
+    trigger: 'item'
+  },
+  legend:[
+    {
+          orient: 'horizontal',
+          icon: 'circle',
+          align: 'left',
+          bottom: '0',
+          itemWidth: 8,
+          itemHeight: 8,
+          y: '20',
+          x: 'center',
+          data: ['鼻翼煽动，口唇、指甲青紫', '胸闷', '憋气/憋醒'],
+          formatter: (name)=> {
+            return `{b|${name}} `;
+          },
+          textStyle: {
+            color: '#999999',
+            fontSize: 12,
+            align: 'left',
+            // 文字块背景色，一定要加上，否则对齐不会生效
+            backgroundColor: "transparent", 
+            rich: {
+              b: {
+                width: 200,
+              },
+            },
+          },
+    },
+    {
+          orient: 'horizontal',
+          icon: 'circle',
+          align: 'left',
+          bottom: '0',
+          itemWidth: 8,
+          itemHeight: 8,
+          y: '40',
+          x: 'center',
+          data: ['咳嗽或反复咳嗽', '气促', '没感觉/感觉良好'],
+          formatter: (name)=> {
+            return `{a|${name}} `;
+          },
+           
+          textStyle: {
+            color: '#999999',
+            fontSize: 12,
+            align: 'left',
+            // 文字块背景色，一定要加上，否则对齐不会生效
+            backgroundColor: "transparent", 
+            rich: {
+              a: {
+                width: 200,
+              },
+            },
+          },
+    }
+    ],
+  series: [
+    {
+      name: 'Access From',
+      type: 'pie',
+      radius: ['40%', '70%'],
+      avoidLabelOverlap: false,
+      itemStyle: {
+        borderRadius: 10,
+        borderColor: '#fff',
+        borderWidth: 2
+      },
+      label: {
+        show: false,
+        position: 'center'
+      },
+      emphasis: {
+        label: {
+          show: true,
+          fontSize: '40',
+          fontWeight: 'bold'
+        }
+      },
+      labelLine: {
+        show: false
+      },
+      data: [
+        { value: 1048, name: '咳嗽或反复咳嗽' },
+        { value: 735, name: '鼻翼煽动，口唇、指甲青紫' },
+        { value: 580, name: '胸闷' },
+        { value: 484, name: '憋气/憋醒' },
+        { value: 300, name: '气促' },
+        { value: 300, name: '没感觉/感觉良好' }
+      ]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

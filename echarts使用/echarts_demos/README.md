@@ -1,6 +1,6 @@
 > #### 堆叠柱状图
 >
->  [chart_demo1.html](chart_demo1.html) 
+>   [echart_demo1.html](echart_demo1.html) 
 >
 > 示例代码：
 >
@@ -115,3 +115,104 @@
 > };
 > ```
 
+> #### Legend对齐
+>
+>  [echart_demo2.html](echart_demo2.html) 
+>
+> ```js
+> option = {
+>   tooltip: {
+>     trigger: 'item'
+>   },
+>   legend:[
+>     {
+>           orient: 'horizontal',
+>           icon: 'circle',
+>           align: 'left',
+>           bottom: '0',
+>           itemWidth: 8,
+>           itemHeight: 8,
+>           y: '20',
+>           x: 'center',
+>           data: ['鼻翼煽动，口唇、指甲青紫', '胸闷', '憋气/憋醒'],
+>           formatter: (name)=> {
+>             return `{b|${name}} `;
+>           },
+>           textStyle: {
+>             color: '#999999',
+>             fontSize: 12,
+>             align: 'left',
+>             // 文字块背景色，一定要加上，否则对齐不会生效
+>             backgroundColor: "transparent", 
+>             rich: {
+>               b: {
+>                 width: 200,
+>               },
+>             },
+>           },
+>     },
+>     {
+>           orient: 'horizontal',
+>           icon: 'circle',
+>           align: 'left',
+>           bottom: '0',
+>           itemWidth: 8,
+>           itemHeight: 8,
+>           y: '40',
+>           x: 'center',
+>           data: ['咳嗽或反复咳嗽', '气促', '没感觉/感觉良好'],
+>           formatter: (name)=> {
+>             return `{a|${name}} `;
+>           },
+>            
+>           textStyle: {
+>             color: '#999999',
+>             fontSize: 12,
+>             align: 'left',
+>             // 文字块背景色，一定要加上，否则对齐不会生效
+>             backgroundColor: "transparent", 
+>             rich: {
+>               a: {
+>                 width: 200,
+>               },
+>             },
+>           },
+>     }
+>     ],
+>   series: [
+>     {
+>       name: 'Access From',
+>       type: 'pie',
+>       radius: ['40%', '70%'],
+>       avoidLabelOverlap: false,
+>       itemStyle: {
+>         borderRadius: 10,
+>         borderColor: '#fff',
+>         borderWidth: 2
+>       },
+>       label: {
+>         show: false,
+>         position: 'center'
+>       },
+>       emphasis: {
+>         label: {
+>           show: true,
+>           fontSize: '40',
+>           fontWeight: 'bold'
+>         }
+>       },
+>       labelLine: {
+>         show: false
+>       },
+>       data: [
+>         { value: 1048, name: '咳嗽或反复咳嗽' },
+>         { value: 735, name: '鼻翼煽动，口唇、指甲青紫' },
+>         { value: 580, name: '胸闷' },
+>         { value: 484, name: '憋气/憋醒' },
+>         { value: 300, name: '气促' },
+>         { value: 300, name: '没感觉/感觉良好' }
+>       ]
+>     }
+>   ]
+> };
+> ```
