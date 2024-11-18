@@ -1,0 +1,163 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=scatter-anscombe-quartet&edit=1&reset=1&code=PYBwLglsB2AEC8sDeAoW7YCMCGBjA1gOYBOwArtACYDCwANsMQFywDkAxAIwCsAzAEwB2ACysANGgxhg9SCBaoMS2GGIRChAKbM22AB4QAzuMnLY-owAVgEaGG0LYAeiexACuqBwC0Au8YHBjQFyegBZqgDD_nl6AZ5GAi8qAkOaAEqamZlIAniCaLKyGABbYlMAA7qzOroAbeYAl0YBccoAvboD9fkGA98qAkAllgFj_rHS2mgUAPmyZ2Xms8UoAvhIJsABmjAC22GD2OgBESNhDsAA8mMROAHxImEMKuKsAFEiUQwCkAJQL8SPxdJpaVAqDGIwQmnZpGR8AXjAwNg6CYxi4xko9Gk1IQMmBxIBw00A6tqACnVAH9qgGj5QA5GYAnIMAIW6AZ-VAJ3xgDC5N7oGFwtK4L7zUEJTDAObAKZpbgXelmex6MAAZTAiUeTEUEPQuHojCYHHGMoGY3uYNcotglFm2EADqaAO2NALRygFOgwAa2ijWKwgoBMJUAFhF-QBGxoAZCKCgApXY2AcCVAE5KgCAGckqtUsADarEAeumASejAD3R4jYNsA_KYhsOsQDNSoAKpUAT3KAQYjWABdO6jDDghK4YG4Mh0bCYIWqMiaLPoQzaT6GX0i0UClJpECfTkQ4jZCBkOuwP18DliNjcdnpysQml2Bx91jcAAMg-HC7HnqUvwAbtoAILQCAzSAwFjjYHV8djIuYTR0AAy7VeyuU0GmwPvD4SmTyLDnZ-VCt_P7MCB7CmflBVSZBVwSJ9iBmOhXzfZRxQYHRxgoXAD2gY5sCuCCENFCBxlgLCADpVSBBBEH4HCGzw0ViE0MAyGIOAOG4AARaheAAMQAIVYABuSCEKGIS3wIojsFItUKNgThqNE2j6MY5i2GIQgcGOb8tKHOcrgEhTfwMsw_2EgDlBMiEyOwX1-CHTgh1s2SHLs5ynNgRz7PclyvLcjzXM8vyfIC7zAo8tMzIspQaLGaBsCmcDjTMpQmwS1sOiSjBO0obtez9Zch1nZdwtEyd5l9QrFwqlcH0MIFiDAHdCCFWSAE5v0KQA-6MAO39AHdYwBpzTxQAlyMAMr1ROwdcbEoa9iyvAB5TdiCLeQJhPCtRI3bdd33KBoBYMs1ofJwACpAHLjQA2JUAMHVAHrnQBOh0Ab8VAFg5QAseUAPlNAHJNI6nBQUSLyveC32g2D_toj9chYeyjOUEBgEMICdrSaQQHbWjJhg2YyrYJAjkHSHks0HlQOa6LaIwSY7F5CA_gS_g52Rkn0DJsAAHVNHUKk2EZOhKDlenYBE2jIuVTQphALJYd7YmENBvbiHLDLG3xvkBSJ3GEkZimqbSGm6fpxmWbZsA0k57nVfQfm8PN0VBbMX6bzvXC8MBl8HfpwwphkMAMhluXTdgR5oEIT2WF4b9ff9wOMn4YPQ95v32kJ8DJZJlK0hyOZNG5-WIWt7Os5zpQrPrX312BcsWH4CHY9i-K0iDUMs7GIDhYT4HeaQyU2HYfgADY2P4LiAFEefpy233zhIk4fEu6DL2TbN96uEsjaMG4SJuQOVxPfaUdudA4HiuK4_gt14YeSdHh9x7MSflWn2fOG71ezEXtIExTHWxOAluXdj2Bd7Sdgh9BBCC3GfAWkMRKiQzPKeIGYhj8SAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+    backgroundColor: '#153274',
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: { // 坐标轴指示器，坐标轴触发有效
+            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+        },
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'horizontal',
+        //            x: 'right',文字在图例颜色的右边了
+        right: 'center',
+        bottom: '5%',
+        textStyle:{
+            color:'#fff'
+        },
+        //            data数据中若存在''，则表示换行，用''切割。
+        data: ['非诉讼', '行政诉讼', '劳动仲裁']
+    },
+    //        calculable:true,
+    series: [{
+            type: 'pie',
+            radius: ['53%', '55%'],
+            center: ['50%', '50%'],
+            hoverAnimation: false,
+            labelLine: {
+                normal: {
+                    show: 0,
+                },
+            },
+            itemStyle: {
+                normal: {
+                    color: function(a) {
+                        if (a.data == 2) {
+                            return '#5DC3FB';
+                        }
+                        if (a.data == 1) {
+                            return 'rgba(0,0,0, 0)';
+                        }
+                    },
+                },
+            },
+            data: [2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1],
+        },
+        {
+            name: '',
+            type: 'pie',
+            radius: ['0%', '50%'],
+            center: ['50%', '50%'],
+            startAngle: 190, //设置起始的角度
+            avoidLabelOverlap: false,
+            hoverAnimation: true,
+            /*控制圆环点击不会放大*/
+
+            label: {
+                normal: {
+                    show: 1,
+                    position: 'top',
+                    formatter: '{c}%',
+                    textStyle: {
+                        fontSize: '20',
+                        fontWeight: 'bold'
+                    }
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '20',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    smooth: true,
+                    length: 30,
+                    length2: 30,
+                    lineStyle: {
+                        type: 'dotted',
+                    },
+                },
+            },
+            data: [{
+                    value: 21,
+                    name: '非诉讼',
+                    itemStyle: {
+                        color: '#26D2FE'
+                    }
+                },
+                {
+                    value: 12,
+                    name: '行政诉讼',
+                    itemStyle: {
+                        color: '#BFF2A3'
+                    }
+                },
+                {
+                    value: 16,
+                    name: '劳动仲裁',
+                    itemStyle: {
+                        color: '#FF727A'
+                    }
+                }
+
+            ]
+        }
+    ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
