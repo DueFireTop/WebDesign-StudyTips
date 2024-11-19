@@ -1,0 +1,160 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-y-category-stack&code=DYUwLgBAtghgHgOQK5QgXggRgKwAZcDcAUEQPYAOYAlqQHboQDeREEYppw15AXEy6zYAnKgHNRIIXwDk8KgGdpAGgGs58gAqkqtMJL7NBggPTGIAVXkgI6tqWFiJQu526rBYAJ7kQM-QAsYABNSAHdpCFMIaQDgsIiYeQggkAAzGCQuAggAYxh6GGB5ewAja2lgHRAI0mcYwJDw9wBfAWaVVijQCVogg3aBURE-_iNQVLAZAGYAUmV3EVF_SeiAFjmOwRLSMHYoaY33HLowGB0AGRgy4D4wISQQNs24AEE4BQN3Lx8ZADdCh7zIwBMJ8dJFECbAasTxvD6jDzeXzRPJ6US1TxAwQg0JgwpWTasIIwU58ADa0gAsnRlNEACqApTRADqICCtOkdP8SA5ADERByAMokoVIWjSAC6TwEVhEIHk5PchiMEFoMCgyOkVCgogA1GqNVijN9NSUYEIjdjTjkANYyTGErbm5lUIJgfzTXDkOCWokkmCKlWCRj_YAPPiYJmkEoAKwMOhScBkuEw0ma0KDTFD4awUdj8d6ICT0VwACY0xmgyGAcjIxBo3GmAmi8mphXHUZq2Ha3nG4xm8XpLhVu33J3sz36_mm4XB7hsKPM1maxHewXE8mAGyLzNdnN1hvrlslgDsO6MEo7Li4VF4CKDOLxELHEErgmAVxAN3vKtotVg37Kkuj7CA8V5GOQpDyFQ1B0DI4xgL6KrHMAtQyAAxPguBIUYhRiLQ8FpIh4GCKk_4knoUgABTkOa6ryAAlGgAB8P5LkI4BIEI9DSP2OoAD7NBEuoQLRQj0QAdAajxLqwb5BnocBgIKXigJ8smCCIOQemxsnaqI6kaSqoSuu6fClrgJFLv4IBiMs5mWS-GlkborJ2Ssm74FZmZmraQykGKQQAMKcGhulGRA2owBIMjLGA5AKqY-kSXhORBLQEnHFAxj6UWdwwDlqzGAA8pgQUICmMAAOKYJunirKWqwAKKYJgAAa8jmAASuYQQAPoAIQDZ5WGjSeUzYAAHAAtKW03xfIs24Jus2rLgEnkLQojSE5smtBFcm7UY-17d5pCpKkVgrGSFlMtNUy4FKS4ncdL4tI6QGCNJMjEqcSEmjIZoWleUTyNadrROwpzAEhH7XIZD7-KCEDglYL7yck_rkpNt0QJNUylkyACcKbE1MqxMpgpYk5TUwPbTFmXi-QNVTAd7SNNmD4IcQYwSAUAqZ4anhaq5GAUdkRmEDABCtQpEIXXBFQSAKhAN3YEypYaxAWua9gTMaShYXSLU-QSDtz3o-9Sovt90S-Ta_mBf9SKA-aSGg-DMhQ4UsOfuLwFI7iKP4jJKoY79AZq7AiAoEyMfIFA8fwInyex0n0Ap3Hmfp2nicGyqLNszInPc0hfMC6pyKfUYf5CABCOZlEMty5IitBMrqvq3rPc6_r3nbEI8shahUjROQOg2jhghG2P0hCKIZpUXWWva6vTLraWDEW5mL0qlbr2sFKzQEEAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    let maxNum = 1500;
+
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      // Use axis to trigger tooltip
+      type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+    }
+  },
+  // legend: {},
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    show: false,
+  },
+  yAxis: {
+    type: 'category',
+    show: false,
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  series: [
+    {
+      name: 'img+name',
+      type: 'bar',
+      stack: 'y',
+      barWidth: '30px',
+      data: [
+        {value: 1, obj: {index: '01'}},
+        {value: 1, obj: {index: '02'}},
+        {value: 1, obj: {index: '03'}},
+        {value: 1, obj: {index: '04'}},
+        {value: 1, obj: {index: '05'}},
+        {value: 1, obj: {index: '06'}},
+        {value: 1, obj: {index: '07'}},
+      ],
+      tooltip: {
+        show: false
+      },
+      label: {
+        normal: {
+          show: true,
+          position: 'left',
+          color: '#000',
+          align: 'left',
+          formatter:(params)=> {
+            return '{img|}' + params.name
+          },
+          textStyle: {
+            rich: {
+              img: {
+                width: 20,
+                height: 20,
+                fontWeight: 600,
+                backgroundColor: {
+                  image: 'https://img.alicdn.com/imgextra/i4/O1CN01aG16y424E11XsURUd_!!6000000007358-2-tps-206-240.png'
+                }
+              }
+            }
+          },
+          offset: [20, -30]
+        }
+      }
+      
+    },
+    {
+      name: 'data',
+      type: 'bar',
+      // stack: 'total',
+      label: {
+        show: false
+      },
+      data: [820, 832, 901, 934, 1290, 1330, 1320],
+      barGap: '-100%',
+      itemStyle: {
+        normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          color: 'orange'
+        }
+      }
+    },
+    {
+      name: 'background',
+      type: 'bar',
+      // stack: 'total',
+      label: {
+        show: false
+      },
+      data: [maxNum, maxNum, maxNum, maxNum, maxNum, maxNum, maxNum],
+      barGap: '-100%',
+      itemStyle: {
+        normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          borderColor: 'pink',
+          color: 'rgba(1, 255, 255, 0.2)'
+        }
+        
+      }
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

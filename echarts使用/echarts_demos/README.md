@@ -718,3 +718,239 @@ option = {
 
 ```
 
+
+
+## 7. 柱状图label插入图片
+
+效果展示： [echarts_demo7.html](echarts_demo7.html) 
+
+```js
+let maxNum = 1500;
+
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      // Use axis to trigger tooltip
+      type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+    }
+  },
+  // legend: {},
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    show: false,
+  },
+  yAxis: {
+    type: 'category',
+    show: false,
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  series: [
+    {
+      name: 'img+name',
+      type: 'bar',
+      stack: 'y',
+      barWidth: '30px',
+      data: [
+        {value: 1},
+        {value: 1},
+        {value: 1},
+        {value: 1},
+        {value: 1},
+        {value: 1},
+        {value: 1},
+      ],
+      tooltip: {
+        show: false
+      },
+      label: {
+        normal: {
+          show: true,
+          position: 'left',
+          color: '#000',
+          align: 'left',
+          formatter:(params)=> {
+            return '{img|}' + params.name
+          },
+          textStyle: {
+            rich: {
+              img: {
+                width: 20,
+                height: 20,
+                fontWeight: 600,
+                backgroundColor: {
+                  image: 'https://img.alicdn.com/imgextra/i4/O1CN01aG16y424E11XsURUd_!!6000000007358-2-tps-206-240.png'
+                }
+              }
+            }
+          },
+          offset: [20, -30]
+        }
+      }
+      
+    },
+    {
+      name: 'data',
+      type: 'bar',
+      // stack: 'total',
+      label: {
+        show: false
+      },
+      data: [820, 832, 901, 934, 1290, 1330, 1320],
+      barGap: '-100%',
+      itemStyle: {
+        normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          color: 'orange'
+        }
+      }
+    },
+    {
+      name: 'background',
+      type: 'bar',
+      // stack: 'total',
+      label: {
+        show: false
+      },
+      data: [maxNum, maxNum, maxNum, maxNum, maxNum, maxNum, maxNum],
+      barGap: '-100%',
+      itemStyle: {
+        normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          borderColor: 'pink',
+          color: 'rgba(1, 255, 255, 0.2)'
+        }
+        
+      }
+    }
+  ]
+};
+```
+
+
+
+## 8. 柱状图实时排序
+
+效果展示： [echarts_demo8.html](echarts_demo8.html) 
+
+```js
+let maxNum = 1500;
+
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      // Use axis to trigger tooltip
+      type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+    }
+  },
+  // legend: {},
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    show: false,
+  },
+  yAxis: {
+    type: 'category',
+    show: false,
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    
+    // 排序
+    inverse: true,
+    animationDuration: 300,
+    animationDurationUpdate: 300
+  },
+  series: [
+    {
+      name: 'img+name',
+      type: 'bar',
+      stack: 'y',
+      barWidth: '30px',
+      data: [
+        {value: 1},
+        {value: 1},
+        {value: 1},
+        {value: 1},
+        {value: 1},
+        {value: 1},
+        {value: 1},
+      ],
+      tooltip: {
+        show: false
+      },
+      label: {
+        normal: {
+          show: true,
+          position: 'left',
+          color: '#000',
+          align: 'left',
+          formatter:(params)=> {
+            return '{img|}' + params.name
+          },
+          textStyle: {
+            rich: {
+              img: {
+                width: 20,
+                height: 20,
+                fontWeight: 600,
+                backgroundColor: {
+                  image: 'https://img.alicdn.com/imgextra/i4/O1CN01aG16y424E11XsURUd_!!6000000007358-2-tps-206-240.png'
+                }
+              }
+            }
+          },
+          offset: [20, -30]
+        }
+      }
+      
+    },
+    {
+      name: 'data',
+      type: 'bar',
+      // stack: 'total',
+      realtimeSort: true, // 开启实时排序
+      label: {
+        show: true
+      },
+      data: [820, 1000, 901, 934, 1250, 1100, 1200],
+      barGap: '-100%',
+      itemStyle: {
+        normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          color: 'orange'
+        }
+      }
+    },
+    {
+      name: 'background',
+      type: 'bar',
+      // stack: 'total',
+      label: {
+        show: false
+      },
+      data: [maxNum, maxNum, maxNum, maxNum, maxNum, maxNum, maxNum],
+      barGap: '-100%',
+      itemStyle: {
+        normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          borderColor: 'pink',
+          color: 'rgba(1, 255, 255, 0.2)'
+        }
+        
+      }
+    }
+  ]
+};
+```
+
