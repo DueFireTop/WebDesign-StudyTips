@@ -621,3 +621,100 @@ option = {
 };
 ```
 
+
+
+## 6. 柱状图柱体顶部添加横线
+
+效果展示： [echarts_demo6.html](echarts_demo6.html) 
+
+```js
+let xLength = 15;
+let dataAxis = Array.from({ length: xLength }, (item, index) => index);
+let data = [];
+let rodData = [];
+dataAxis.forEach((item, index) => {
+  // 设置基础bar数据
+  data.push(item + 10);
+  // 设置markPoint数据
+  rodData.push({
+    symbol: 'rect',
+    symbolSize: [30, 4],
+    xAxis: item,
+    yAxis: data[index], // 对应每列基础bar的值
+    itemStyle: {
+      color: 'red'
+    }
+  });
+});
+option = {
+  xAxis: {
+    type: 'category',
+    data: dataAxis,
+    axisLabel: {
+      color: '#999'
+    },
+    axisTick: {
+      show: false
+    },
+    axisLine: {
+      show: false
+    }
+  },
+  yAxis: {
+    axisLine: {
+      show: false
+    },
+    axisTick: {
+      show: false
+    },
+    axisLabel: {
+      color: '#999'
+    },
+    splitLine: {
+      show: true,
+      lineStyle: {
+        color: 'pink',
+        opacity: 1
+      },
+    },
+    splitNumber: 3,
+  },
+  series: [
+    {
+      name: 'background',
+      barGap: '-85%',
+       type: 'bar',
+      itemStyle: {
+        normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          borderColor: 'pink',
+          color: 'rgba(1, 255, 255, 0.2)'
+        }
+      },
+      data: [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, ],
+      barWidth: 30,
+    },
+    {
+      // 基础bar
+      name: 'data',
+      type: 'bar',
+      itemStyle: {
+         normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          color: 'orange'
+        }
+        
+      },
+      data,
+      barWidth: 20,
+      markPoint: {
+        data: rodData
+      },
+      // barGap: '-100%'
+    },
+    
+  ]
+};
+
+```
+

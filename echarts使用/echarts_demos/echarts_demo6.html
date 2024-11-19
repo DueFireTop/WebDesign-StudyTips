@@ -1,0 +1,142 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=line-simple&code=DYUwLgBAHgMiB2BzMALCBeCBGArAbgFgAoUSAEwEMwKBBKASwGcMIaAnNigTwDoAzNgHsAtgAoA3hFBJUALmhwZaAL4AaCKPpgQw9fXhkQUAJQYAfBH2GThEuAiVqLANoBdW6QhCyAESoUXd2JHWgZGfkE2AFEKAGMUUU1tXUsDI1N0C3FiCAgAejyIQD7owDt_QC_1QAEPACMKNkAHU0A7YxyHfx4ABwBXRgStHQgAamwABmNbXILikuFagGsABUF9MEbm7z9qdq6E7KJc3MYuYSrBYHkAcjYQWLAz1Wb9w-PgAGV6AC8QeWcAZiH1ABZXHddnsoHQmPJerp7hAuODGPIQs4rEYgflCoBP7UAKXqAeetAOhKlRqbEAIW6AHgUYVDnmAuKB5Ds9ntYidIudLmQzjDlM1lKNiDzbII2mB6IJ4Cx6dB4XSYdS2p8IGdYlQQIhIlxbjCQoj_PDgQyKGEYBQqiBThAJQymcAWQqAMQATkdHJBuTUMINTAAKvRYjNpS69t1BAB3eR8CjARggTl6vYexgwfTyi2BlAhsMRqOc7mxuFhf36w1JgsMiBB0MQcOR6MBt0B-Pe30lhnljPVmPuw3G03NxnMtjnB1OjsBxhtYBaRPwZMw_ZpitgNgdECxhkT6dUmkzgOW_vnNr6GYand7QVxLRceRYWcQOsMu-B8daAByHSOIAHEG-sYfUbY9BABEIGcGEU1yeAKGEeUzhqX1ECEDoDGPUsICJABxCg2nOABaAAOHAAFJkJQ2VoKJYiGUpalaXNG9wMiaYzTA0sJiJAAhSJDDYAAlCgyHoLovgAJhwdQRLE0SIBEoE6L2Y42C4gBhPcFQPeAj1XFCICtG0LkQGpRCwCTJJEyShh4ITjGdLTbxvB8GS1YDfnUZyvz-NyXPc1zvK83zPP8jzAtcmSTyJAB1egyDkDyRwZZiJkJWobwgqDzhCCi9lI85yM03IqK3XtS3gBiI0KljCnYziP14_jBOA8SpJMpqQps3IdM_M5IgoJAQGsrSuRPXI7NylpqBG8LIuioS_hvaY2HmRZ4DAMrckctZ_GGm9WNqDCsIVbCsCGIYiNivZmlcPk8CAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    let xLength = 15;
+let dataAxis = Array.from({ length: xLength }, (item, index) => index);
+let data = [];
+let rodData = [];
+dataAxis.forEach((item, index) => {
+  // 设置基础bar数据
+  data.push(item + 10);
+  // 设置markPoint数据
+  rodData.push({
+    symbol: 'rect',
+    symbolSize: [30, 4],
+    xAxis: item,
+    yAxis: data[index], // 对应每列基础bar的值
+    itemStyle: {
+      color: 'red'
+    }
+  });
+});
+option = {
+  xAxis: {
+    type: 'category',
+    data: dataAxis,
+    axisLabel: {
+      color: '#999'
+    },
+    axisTick: {
+      show: false
+    },
+    axisLine: {
+      show: false
+    }
+  },
+  yAxis: {
+    axisLine: {
+      show: false
+    },
+    axisTick: {
+      show: false
+    },
+    axisLabel: {
+      color: '#999'
+    },
+    splitLine: {
+      show: true,
+      lineStyle: {
+        color: 'pink',
+        opacity: 1
+      },
+    },
+    splitNumber: 3,
+  },
+  series: [
+    {
+      name: 'background',
+      barGap: '-85%',
+       type: 'bar',
+      itemStyle: {
+        normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          borderColor: 'pink',
+          color: 'rgba(1, 255, 255, 0.2)'
+        }
+      },
+      data: [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, ],
+      barWidth: 30,
+    },
+    {
+      // 基础bar
+      name: 'data',
+      type: 'bar',
+      itemStyle: {
+         normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          color: 'orange'
+        }
+        
+      },
+      data,
+      barWidth: 20,
+      markPoint: {
+        data: rodData
+      },
+      // barGap: '-100%'
+    },
+    
+  ]
+};
+
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
