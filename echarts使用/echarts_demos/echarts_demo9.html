@@ -1,0 +1,185 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-y-category-stack&code=DYUwLgBAtghgHgOQK5QgXggRgKwAZcDcAUAG4wBOEAziOQJYhUAiMYM6EA2kRBAN4A7GFBAAuCAHJAYqqBBlUwSANBAAmrGOMz5cAXwU9-QkeOkyATIpVqNeHXt6DhYybIDMF1Ww248u_Q6POMgAs7lZYLvi-9oZOJtihnliatn4xxrIAbAnqWKaRdgaO6TIA7NkaQflEALpERAD2AA5gdPUCHHz6YPX1wC2N4p28vGD0AOZjtMbwdFSK-rwzVAAK9XQCYFP8C8MA9LsQAKo0EEsQ3efjk5Tdvf07IwCejbFUABYwyvUA7hIQ-5J3p8fn8YFQVCAAGYwJB9AgQADGMHaMGAVHqEAARiBJMB1iA_vVKBIgV9fjttPoov8DqBJgJlINqWN6IztsMIKBIWBjC4AKTzDnjN48yRBAUFXiY-pgbpQXkSnYItpsdYAGRg2OA4lGSBAVIKcAAgnBZoMdmBnrEyMA9YLhu8fuJoWiQAVqY8TWb2cNLS9jEjNmMiY97bxHd9naiaJKaZZEpwJABZNoWCQAFTtSgkAHUQMo0-m3kg0wAxehpgDKrCrSAEEmqsY8OW4HPDtAYzDUnFw1QAdDElDR6IwWGxOJh-4PqB3R93TFPHLH2yOu-OXIuREPZ2uYJwgpu3TPV2O99hD8vj53T5wMoeHhBGzsdgDAEnGgHi9HbrEi0Gg68h6rGyJ0LALRtEwSDkKwrQCOIES4EBAggdB4GQShAiHI0HhOPBBr6MOnbiK2wxDG2aSSCBYwANQxGGvpWsYmIUHR4ZsAiADWxihpeTHkDmdDKGAby8rgjRwCx8Ytg-9g2nqGjUm2_CyU4mAKW2fDKfJl4yaiclYGpHIabpKkGSRmn6dpSnGVpD5Poptx9HQAw-opEZRq6D6mcAmogNqLlkUSsB-aRinhm8TqXIB0nDI09RUHQYGwbiUJgBJHLKsARLGAAxFoaXDKidBjElEhcqllm8JCgWsJs5CiAAFI0FDCFQACUaAAHz-aFEDkOAkHtBIfCUQAPtofxURATVQVAVADo40W8KZHKbHAYCVpaoDmj1Qp0AiwndTtlHbTtinfAJQniHkFWhW8IBFSKV0IYtoVVRseYPaKGT4DdilMRxLL1HWygAMK9Flh2nbwyGTMYIpgI0VCiPslF9oVCLKAIfbKlAuyUSAa1QXjQS7AA8pgIMILgmAwAA4pgGSPEEphBAAopgmAABpUIcABKhzKAA-gAhML31aBLJQuNgAAcAC0phywjVAK7gGQK5UfaNAIYwSC9imUlDwyG1DJs9ctwz1JCkI0KKnDXRAcsRLU5ueQ-FKxiFwzkRIzYSX6sS8RJAJUGxnGSN0bDABJfWoi0IiVkSoq6keAKAAD6gD0KoAedqAG-mH4Pt5Wona54WRpF-oG5eALNkRMsO8kCEQAAnNTShNy4QRKJgph4F3yRd3kvaXjXXDRQRc7jr2fbNtuJ7dpO09qLP17zv2M9jzuN4bovbDLxPe4HjvMB77unDnkflnj6fd5H9FdltrxtMwM5Ehy8kiqKQlIBQBtjxbZDEABDVWCi9AEvEABCRJlC0F5p8OgSAkZcB7koZBEBUE93vj1DKEMJBEmRJMPWrsDYex2F7XgPt_rsUBsDf2DFJBByrgcUOMAOLGEjqiCShdfLFzbG5CALoaCeWHmETgsBEAoCUGI5AUBJHwGkbI8RMjoByIkcoxRCjpGYOGI_Z-xg374A_m2L-P9NpODId7YBPDFJgIoJA8g0DyCwOUPAxB9tsAoPcWgzxGCbrSnsbQMGmU6qSEaOsdi-VeDYOCRIcgYwmL1UwB47x2BPG4D7KYVqhDQpmzbG7DkJtajaAIEAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    let maxNum = 1500;
+var seriesData = [
+  {name: '商品1', data: 1000},
+  {name: '商品2', data: 1500},
+  {name: '商品3', data: 1050},
+  {name: '商品4', data: 1300},
+  {name: '商品5', data: 1100},
+  {name: '商品6', data: 1200},
+  {name: '商品7', data: 1400},
+]
+
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      // Use axis to trigger tooltip
+      type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+    }
+  },
+  // legend: {},
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    show: false,
+  },
+  yAxis: {
+    type: 'category',
+    show: false,
+    // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    data: [
+      seriesData[0].name, seriesData[1].name, seriesData[2].name,
+      seriesData[3].name, seriesData[4].name, seriesData[5].name,
+      seriesData[6].name
+      ],
+    
+    // 排序
+    inverse: true,
+    animationDuration: 300,
+    animationDurationUpdate: 300
+  },
+  series: [
+    {
+      name: 'img+name',
+      type: 'bar',
+      stack: 'y',
+      barWidth: '30px',
+      data: [
+        {value: 1},
+        {value: 1},
+        {value: 1},
+        {value: 1},
+        {value: 1},
+        {value: 1},
+        {value: 1},
+      ],
+      tooltip: {
+        show: false
+      },
+      label: {
+        normal: {
+          show: true,
+          position: 'left',
+          color: '#000',
+          align: 'left',
+          formatter:(params)=> {
+            return '{img|}' + params.name
+          },
+          textStyle: {
+            rich: {
+              img: {
+                width: 20,
+                height: 20,
+                fontWeight: 600,
+                backgroundColor: {
+                  image: 'https://img.alicdn.com/imgextra/i4/O1CN01aG16y424E11XsURUd_!!6000000007358-2-tps-206-240.png'
+                }
+              }
+            }
+          },
+          offset: [20, -30]
+        }
+      }
+      
+    },
+    {
+      name: 'data',
+      type: 'bar',
+      // stack: 'total',
+      realtimeSort: true, // 开启实时排序
+      label: {
+        show: true
+      },
+      // data: [820, 1000, 901, 934, 1250, 1100, 1200],
+      data: [
+        seriesData[0].data, seriesData[1].data, seriesData[2].data,
+        seriesData[3].data, seriesData[4].data, seriesData[5].data,
+        seriesData[6].data
+        ],
+      barGap: '-100%',
+      itemStyle: {
+        normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          color: 'orange'
+        }
+      }
+    },
+    {
+      name: 'background',
+      type: 'bar',
+      // stack: 'total',
+      label: {
+        show: false
+      },
+      data: [maxNum, maxNum, maxNum, maxNum, maxNum, maxNum, maxNum],
+      barGap: '-100%',
+      itemStyle: {
+        normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          borderColor: 'pink',
+          color: 'rgba(1, 255, 255, 0.2)'
+        }
+        
+      }
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
