@@ -833,6 +833,155 @@ option = {
 };
 ```
 
+### 柱状图label插入不同图片
+
+```js
+let maxNum = 1500;
+let imgUrl1 = 'https://img.51miz.com/Element/01/01/40/01/ff0a6c01_E1014001_1cc0c367.jpg';
+let imgUrl2 = 'https://tse2-mm.cn.bing.net/th/id/OIP-C.T0MhJBmie5tk4TnJuFZeaQAAAA?rs=1&pid=ImgDetMain';
+let data = [
+  {value: '1400', name: 'Sun', imgUrl: imgUrl1},
+  {value: '1100', name: 'Mon', imgUrl: imgUrl2},
+]
+
+// let imgData = [];
+
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      // Use axis to trigger tooltip
+      type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+    }
+  },
+  // legend: {},
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    show: false,
+  },
+  yAxis: {
+    type: 'category',
+    show: false,
+    data: [data[0].name, data[1].name]
+  },
+  series: [
+    {
+      name: 'img+name',
+      type: 'bar',
+      stack: 'y',
+      barWidth: '30px',
+      // data: [
+      //   {value: 1},
+      //   {value: 1},
+      //   {value: 1},
+      //   {value: 1},
+      //   {value: 1},
+      //   {value: 1},
+      //   {value: 1},
+      // ],
+      // data: data,
+      data: data.map(item =>{
+        return {
+          value: item.value,
+          label: {
+            normal: {
+              show: true,
+              position: 'left',
+              color: '#000',
+              align: 'left',
+              formatter:(params)=> {
+                return '{img|}' + params.name
+              },
+              textStyle: {
+                rich: {
+                  img: {
+                    width: 20,
+                    height: 20,
+                    fontWeight: 600,
+                    backgroundColor: {
+                      image: item.imgUrl
+                    }
+                  }
+                }
+              },
+              offset: [20, -30]
+            }
+          }
+        }
+      }),
+      tooltip: {
+        show: false
+      },
+      // label: {
+      //   normal: {
+      //     show: true,
+      //     position: 'left',
+      //     color: '#000',
+      //     align: 'left',
+      //     formatter:(params)=> {
+      //       return '{img|}' + params.name
+      //     },
+      //     textStyle: {
+      //       rich: {
+      //         img: {
+      //           width: 20,
+      //           height: 20,
+      //           fontWeight: 600,
+      //           backgroundColor: {
+      //             image: imgUrl1
+      //           }
+      //         }
+      //       }
+      //     },
+      //     offset: [20, -30]
+      //   }
+      // }
+      
+    },
+    {
+      name: 'data',
+      type: 'bar',
+      // stack: 'total',
+      label: {
+        show: false
+      },
+      data: data,
+      barGap: '-100%',
+      itemStyle: {
+        normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          color: 'orange'
+        }
+      }
+    },
+    {
+      name: 'background',
+      type: 'bar',
+      // stack: 'total',
+      label: {
+        show: false
+      },
+      data: [maxNum, maxNum, maxNum, maxNum, maxNum, maxNum, maxNum],
+      barGap: '-100%',
+      itemStyle: {
+        normal: {
+          // barBorderRadius: [25, 25, 25, 25],
+          borderColor: 'pink',
+          color: 'rgba(1, 255, 255, 0.2)'
+        }
+        
+      }
+    }
+  ]
+};
+```
+
 
 
 ## 8. 柱状图实时排序
@@ -1090,5 +1239,90 @@ option = {
     }
   ]
 };
+```
+
+
+
+## 9. 点击echarts图表内容，弹出ei对话框
+
+```vue
+<template>
+  <div>
+    <!-- 图表容器 -->
+    <div id="chart" style="width: 600px; height: 400px;"></div>
+
+    <!-- Element UI对话框 -->
+    <el-dialog
+      title="图表数据详情"
+      :visible.sync="dialogVisible"
+      width="30%">
+      <span>数据名称：{{ dialogData.name }}</span><br>
+      <span>数据值：{{ dialogData.value }}</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取消</el-button>
+      </span>
+    </el-dialog>
+  </div>
+</template>
+
+<script>
+import * as echarts from 'echarts';
+import { ElDialog, ElButton } from 'element-ui';
+
+export default {
+  components: {
+    ElDialog,
+    ElButton
+  },
+  data() {
+    return {
+      chart: null, // ECharts实例
+      dialogVisible: false, // 对话框可见性
+      dialogData: {} // 对话框显示的数据
+    };
+  },
+  mounted() {
+    // 初始化ECharts实例
+    this.chart = echarts.init(document.getElementById('chart'));
+
+    // 配置ECharts选项
+    var option = {
+      // ... 你的ECharts配置选项
+      series: [{
+        data: [
+          { name: 'A', value: 10 },
+          { name: 'B', value: 20 },
+          // ... 其他数据
+        ],
+        type: 'bar'
+      }]
+    };
+
+    // 应用配置选项
+    this.chart.setOption(option);
+
+    // 监听图表点击事件
+    this.chart.on('click', this.handleChartClick);
+  },
+  methods: {
+    handleChartClick(params) {
+      // 更新对话框数据
+      this.dialogData = params.data;
+      // 显示对话框
+      this.dialogVisible = true;
+    }
+  },
+  beforeDestroy() {
+    // 销毁ECharts实例，避免内存泄漏
+    if (this.chart) {
+      this.chart.dispose();
+    }
+  }
+};
+</script>
+
+<style scoped>
+/* 你的样式 */
+</style>
 ```
 
