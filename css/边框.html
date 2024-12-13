@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>渐变边框</title>
+  </head>
+  <style>
+    .gradient-border {
+      position: relative;
+      height: 200px;
+      width: 200px;
+      padding: 10px;
+      background: #ffffff;
+    }
+    .gradient-border:before {
+      content: "";
+      position: absolute;
+      top: 0px;
+      bottom: -2px;
+      left: -2px;
+      right: -2px;
+      background: linear-gradient(to bottom, #ffffff, #0000ff);
+      z-index: -1;
+    }
+  </style>
+  <body>
+    <div class="gradient-border"></div>
+  </body>
+</html>
